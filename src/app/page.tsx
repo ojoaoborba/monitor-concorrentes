@@ -1,10 +1,12 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Eye, EyeOff, Radar } from "lucide-react"
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
+  const router = useRouter()
 
   return (
     <div className="min-h-screen bg-[#09090B] flex items-center justify-center p-4 relative overflow-hidden">
@@ -75,6 +77,7 @@ export default function LoginPage() {
 
             <button
               type="button"
+              onClick={() => router.push("/dashboard")}
               className="w-full bg-[#1DB954] hover:bg-[#18a34a] active:bg-[#158a40] text-black font-semibold py-3 rounded-xl text-sm transition-all shadow-lg shadow-[#1DB954]/20 hover:shadow-[#1DB954]/30"
             >
               Entrar na plataforma

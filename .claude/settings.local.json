@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const n = require\\('/c/Users/jblui/monitor-concorrentes/node_modules/next'\\); console.log\\(Object.keys\\(n\\).slice\\(0,10\\)\\)\")"
+    ]
+  }
+}
