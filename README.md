@@ -44,11 +44,11 @@ O **Sentinel** é uma plataforma de monitoramento de concorrentes no Instagram v
 ## Screenshots
 
 ```
-[Dashboard Screenshot]
+
 ```
 
 ```
-[Login Screenshot]
+
 ```
 
 ---
@@ -63,5 +63,5 @@ O **Sentinel** é uma plataforma de monitoramento de concorrentes no Instagram v
 
 Desenvolvido por **João Borba** como projeto de portfólio.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/joaoborba)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/joaoborba)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ojoaoborba)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ojoaoborba)
