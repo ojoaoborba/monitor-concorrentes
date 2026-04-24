@@ -43,6 +43,9 @@ O **Sentinel** é uma plataforma de monitoramento de concorrentes no Instagram v
 
 ## Screenshots
 
+![Login](./screenshots/login.png)
+![Dashboard](./screenshots/dashboard.png)
+
 ```
 
 ```
