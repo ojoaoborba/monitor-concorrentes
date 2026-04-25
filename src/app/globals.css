@@ -49,6 +49,19 @@
 }
 
 :root {
+  /* Sentinel theme — light */
+  --s-bg:       #F4F4F5;
+  --s-surface:  #FFFFFF;
+  --s-sidebar:  #FAFAFA;
+  --s-border:   #E4E4E7;
+  --s-border-2: #D4D4D8;
+  --s-fg:       #18181B;
+  --s-fg-2:     #52525B;
+  --s-fg-3:     #71717A;
+  --s-fg-4:     #A1A1AA;
+  --s-fg-5:     #A1A1AA;
+  --s-active-bg: rgba(17,17,17,0.07);
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -84,6 +97,19 @@
 }
 
 .dark {
+  /* Sentinel theme — dark */
+  --s-bg:       #09090B;
+  --s-surface:  #18181B;
+  --s-sidebar:  #18181B;
+  --s-border:   #27272A;
+  --s-border-2: #3F3F46;
+  --s-fg:       #FAFAFA;
+  --s-fg-2:     #A1A1AA;
+  --s-fg-3:     #71717A;
+  --s-fg-4:     #52525B;
+  --s-fg-5:     #3F3F46;
+  --s-active-bg: rgba(250,250,250,0.07);
+
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);

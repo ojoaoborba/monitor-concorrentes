@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Bell, Plus, Eye, Pause, Trash2, Play, Users } from 'lucide-react'
 import Link from 'next/link'
+import { ThemeToggle } from '@/components/ThemeToggle'
 
 type Status = 'Ativo' | 'Pausado'
 
@@ -95,10 +96,10 @@ export default function ConcorrentesPage() {
 
   return (
     <>
-      <header className="sticky top-0 z-10 bg-[#09090B]/80 backdrop-blur-md border-b border-[#27272A] px-8 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-10 bg-[var(--s-bg)]/80 backdrop-blur-md border-b border-[var(--s-border)] px-8 py-4 flex items-center justify-between">
         <div>
-          <h1 className="text-[#FAFAFA] text-xl font-bold leading-tight">Concorrentes</h1>
-          <p className="text-[#52525B] text-xs mt-0.5">
+          <h1 className="text-[var(--s-fg)] text-xl font-bold leading-tight">Concorrentes</h1>
+          <p className="text-[var(--s-fg-4)] text-xs mt-0.5">
             {lista.length} perfis sendo monitorados
           </p>
         </div>
@@ -107,31 +108,32 @@ export default function ConcorrentesPage() {
             <Plus className="w-4 h-4" />
             Adicionar Concorrente
           </button>
+          <ThemeToggle />
           <Link
             href="/dashboard/alertas"
-            className="relative p-2 rounded-xl bg-[#18181B] border border-[#27272A] text-[#71717A] hover:text-[#FAFAFA] hover:border-[#3F3F46] transition-all"
+            className="relative p-2 rounded-xl bg-[var(--s-surface)] border border-[var(--s-border)] text-[var(--s-fg-3)] hover:text-[var(--s-fg)] hover:border-[var(--s-border-2)] transition-all"
           >
             <Bell className="w-4 h-4" />
-            <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-[#1DB954] rounded-full ring-2 ring-[#09090B]" />
+            <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-[#1DB954] rounded-full ring-2 ring-[var(--s-surface)]" />
           </Link>
         </div>
       </header>
 
       <div className="p-8">
-        <div className="bg-[#18181B] border border-[#27272A] rounded-2xl overflow-hidden">
-          <div className="px-6 py-4 border-b border-[#27272A]">
-            <h3 className="text-[#FAFAFA] font-semibold text-sm">Perfis Monitorados</h3>
-            <p className="text-[#52525B] text-xs mt-0.5">
+        <div className="bg-[var(--s-surface)] border border-[var(--s-border)] rounded-2xl overflow-hidden">
+          <div className="px-6 py-4 border-b border-[var(--s-border)]">
+            <h3 className="text-[var(--s-fg)] font-semibold text-sm">Perfis Monitorados</h3>
+            <p className="text-[var(--s-fg-4)] text-xs mt-0.5">
               Gerencie suas lojas de suplementos concorrentes e veja o status de cada monitoramento
             </p>
           </div>
 
           {lista.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20 gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-[#27272A] flex items-center justify-center">
-                <Users className="w-7 h-7 text-[#3F3F46]" />
+              <div className="w-14 h-14 rounded-2xl bg-[var(--s-border)] flex items-center justify-center">
+                <Users className="w-7 h-7 text-[var(--s-fg-5)]" />
               </div>
-              <p className="text-[#52525B] text-sm">Nenhuma loja de suplementos cadastrada.</p>
+              <p className="text-[var(--s-fg-4)] text-sm">Nenhuma loja de suplementos cadastrada.</p>
               <button className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1DB954] hover:bg-[#1DB954]/90 text-[#09090B] text-sm font-semibold transition-all">
                 <Plus className="w-4 h-4" />
                 Adicionar Concorrente
@@ -141,12 +143,12 @@ export default function ConcorrentesPage() {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-[#27272A]">
+                  <tr className="border-b border-[var(--s-border)]">
                     {['Perfil', 'Seguidores', 'Posts Monitorados', 'Último Alerta', 'Status', 'Ações'].map(
                       (col) => (
                         <th
                           key={col}
-                          className="text-left text-[#3F3F46] text-[11px] font-semibold uppercase tracking-widest px-6 py-3"
+                          className="text-left text-[var(--s-fg-5)] text-[11px] font-semibold uppercase tracking-widest px-6 py-3"
                         >
                           {col}
                         </th>
@@ -161,7 +163,7 @@ export default function ConcorrentesPage() {
                     return (
                       <tr
                         key={c.id}
-                        className="border-b border-[#27272A]/60 last:border-0 hover:bg-[#27272A]/20 transition-colors"
+                        className="border-b border-[var(--s-border)]/60 last:border-0 hover:bg-[var(--s-border)]/20 transition-colors"
                       >
                         <td className="px-6 py-4">
                           <div className="flex items-center gap-3">
@@ -172,19 +174,19 @@ export default function ConcorrentesPage() {
                               {c.avatar}
                             </div>
                             <div>
-                              <p className="text-[#FAFAFA] text-sm font-semibold">{c.nome}</p>
-                              <p className="text-[#52525B] text-xs">{c.handle}</p>
+                              <p className="text-[var(--s-fg)] text-sm font-semibold">{c.nome}</p>
+                              <p className="text-[var(--s-fg-4)] text-xs">{c.handle}</p>
                             </div>
                           </div>
                         </td>
                         <td className="px-6 py-4">
-                          <span className="text-[#A1A1AA] text-sm">{c.seguidores}</span>
+                          <span className="text-[var(--s-fg-2)] text-sm">{c.seguidores}</span>
                         </td>
                         <td className="px-6 py-4">
-                          <span className="text-[#A1A1AA] text-sm">{c.posts}</span>
+                          <span className="text-[var(--s-fg-2)] text-sm">{c.posts}</span>
                         </td>
                         <td className="px-6 py-4">
-                          <span className="text-[#52525B] text-sm whitespace-nowrap">
+                          <span className="text-[var(--s-fg-4)] text-sm whitespace-nowrap">
                             {c.ultimoAlerta}
                           </span>
                         </td>
@@ -209,21 +211,21 @@ export default function ConcorrentesPage() {
                           <div className="flex items-center gap-2">
                             <button
                               title="Ver detalhes"
-                              className="p-1.5 rounded-lg text-[#52525B] hover:text-[#1DB954] hover:bg-[#1DB954]/10 transition-all"
+                              className="p-1.5 rounded-lg text-[var(--s-fg-4)] hover:text-[#1DB954] hover:bg-[#1DB954]/10 transition-all"
                             >
                               <Eye className="w-4 h-4" />
                             </button>
                             <button
                               title={ativo ? 'Pausar' : 'Reativar'}
                               onClick={() => toggleStatus(c.id)}
-                              className="p-1.5 rounded-lg text-[#52525B] hover:text-[#F59E0B] hover:bg-[#F59E0B]/10 transition-all"
+                              className="p-1.5 rounded-lg text-[var(--s-fg-4)] hover:text-[#F59E0B] hover:bg-[#F59E0B]/10 transition-all"
                             >
                               {ativo ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
                             </button>
                             <button
                               title="Excluir"
                               onClick={() => excluir(c.id)}
-                              className="p-1.5 rounded-lg text-[#52525B] hover:text-[#EF4444] hover:bg-[#EF4444]/10 transition-all"
+                              className="p-1.5 rounded-lg text-[var(--s-fg-4)] hover:text-[#EF4444] hover:bg-[#EF4444]/10 transition-all"
                             >
                               <Trash2 className="w-4 h-4" />
                             </button>

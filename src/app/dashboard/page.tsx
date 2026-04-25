@@ -9,6 +9,7 @@ import {
   ArrowUpRight,
 } from "lucide-react"
 import Link from "next/link"
+import { ThemeToggle } from "@/components/ThemeToggle"
 
 const metrics = [
   {
@@ -92,38 +93,39 @@ const typeConfig: Record<string, { color: string }> = {
 }
 
 const statusConfig: Record<string, { bg: string; text: string }> = {
-  "Novo":      { bg: "rgba(29,185,84,0.12)",  text: "#1DB954" },
-  "Visto":     { bg: "rgba(161,161,170,0.10)", text: "#A1A1AA" },
-  "Arquivado": { bg: "rgba(63,63,70,0.40)",   text: "#52525B" },
+  "Novo":      { bg: "rgba(29,185,84,0.12)",        text: "#1DB954" },
+  "Visto":     { bg: "rgba(161,161,170,0.10)",       text: "var(--s-fg-4)" },
+  "Arquivado": { bg: "var(--s-active-bg)",           text: "var(--s-fg-4)" },
 }
 
 export default function DashboardPage() {
   return (
     <>
-      <header className="sticky top-0 z-10 bg-[#09090B]/80 backdrop-blur-md border-b border-[#27272A] px-8 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-10 bg-[var(--s-bg)]/80 backdrop-blur-md border-b border-[var(--s-border)] px-8 py-4 flex items-center justify-between">
         <div>
-          <h1 className="text-[#FAFAFA] text-xl font-bold leading-tight">
+          <h1 className="text-[var(--s-fg)] text-xl font-bold leading-tight">
             Bom dia, João 👋
           </h1>
-          <p className="text-[#52525B] text-xs mt-0.5">
-            Quinta-feira, 24 de abril de 2025
+          <p className="text-[var(--s-fg-4)] text-xs mt-0.5">
+            Sexta-feira, 25 de abril de 2025
           </p>
         </div>
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Link
             href="/dashboard/alertas"
-            className="relative p-2 rounded-xl bg-[#18181B] border border-[#27272A] text-[#71717A] hover:text-[#FAFAFA] hover:border-[#3F3F46] transition-all"
+            className="relative p-2 rounded-xl bg-[var(--s-surface)] border border-[var(--s-border)] text-[var(--s-fg-3)] hover:text-[var(--s-fg)] hover:border-[var(--s-border-2)] transition-all"
           >
             <Bell className="w-4 h-4" />
-            <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-[#1DB954] rounded-full ring-2 ring-[#09090B]" />
+            <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-[#1DB954] rounded-full ring-2 ring-[var(--s-surface)]" />
           </Link>
         </div>
       </header>
 
       <div className="p-8 space-y-7">
         <div>
-          <h2 className="text-[#FAFAFA] font-semibold text-base">Visão geral</h2>
-          <p className="text-[#52525B] text-xs mt-0.5">Resumo de hoje em tempo real</p>
+          <h2 className="text-[var(--s-fg)] font-semibold text-base">Visão geral</h2>
+          <p className="text-[var(--s-fg-4)] text-xs mt-0.5">Resumo de hoje em tempo real</p>
         </div>
 
         <div className="grid grid-cols-4 gap-4">
@@ -132,7 +134,7 @@ export default function DashboardPage() {
             return (
               <div
                 key={m.label}
-                className="bg-[#18181B] border border-[#27272A] rounded-2xl p-5 hover:border-[#3F3F46] transition-all group cursor-default"
+                className="bg-[var(--s-surface)] border border-[var(--s-border)] rounded-2xl p-5 hover:border-[var(--s-border-2)] transition-all group cursor-default"
               >
                 <div className="flex items-start justify-between mb-5">
                   <div
@@ -141,28 +143,28 @@ export default function DashboardPage() {
                   >
                     <Icon className="w-5 h-5" style={{ color: m.color }} />
                   </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#3F3F46] group-hover:text-[#52525B] transition-colors" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[var(--s-fg-5)] group-hover:text-[var(--s-fg-4)] transition-colors" />
                 </div>
-                <p className="text-[#71717A] text-xs font-medium leading-tight mb-1.5">
+                <p className="text-[var(--s-fg-3)] text-xs font-medium leading-tight mb-1.5">
                   {m.label}
                 </p>
-                <p className="text-[#FAFAFA] text-2xl font-bold tracking-tight">
+                <p className="text-[var(--s-fg)] text-2xl font-bold tracking-tight">
                   {m.value}
                 </p>
                 <div className="flex items-center gap-1.5 mt-2">
                   <TrendingUp className="w-3 h-3" style={{ color: m.color }} />
-                  <p className="text-[#52525B] text-xs">{m.change}</p>
+                  <p className="text-[var(--s-fg-4)] text-xs">{m.change}</p>
                 </div>
               </div>
             )
           })}
         </div>
 
-        <div className="bg-[#18181B] border border-[#27272A] rounded-2xl overflow-hidden">
-          <div className="flex items-center justify-between px-6 py-4 border-b border-[#27272A]">
+        <div className="bg-[var(--s-surface)] border border-[var(--s-border)] rounded-2xl overflow-hidden">
+          <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--s-border)]">
             <div>
-              <h3 className="text-[#FAFAFA] font-semibold text-sm">Últimos Alertas</h3>
-              <p className="text-[#52525B] text-xs mt-0.5">
+              <h3 className="text-[var(--s-fg)] font-semibold text-sm">Últimos Alertas</h3>
+              <p className="text-[var(--s-fg-4)] text-xs mt-0.5">
                 Atividade recente das lojas de suplementos monitoradas
               </p>
             </div>
@@ -178,11 +180,11 @@ export default function DashboardPage() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-[#27272A]">
+                <tr className="border-b border-[var(--s-border)]">
                   {["Concorrente", "Tipo", "Conteúdo", "Detectado em", "Status"].map((col) => (
                     <th
                       key={col}
-                      className="text-left text-[#3F3F46] text-[11px] font-semibold uppercase tracking-widest px-6 py-3"
+                      className="text-left text-[var(--s-fg-5)] text-[11px] font-semibold uppercase tracking-widest px-6 py-3"
                     >
                       {col}
                     </th>
@@ -196,14 +198,14 @@ export default function DashboardPage() {
                   return (
                     <tr
                       key={i}
-                      className="border-b border-[#27272A]/60 last:border-0 hover:bg-[#27272A]/25 transition-colors cursor-default"
+                      className="border-b border-[var(--s-border)]/60 last:border-0 hover:bg-[var(--s-border)]/25 transition-colors cursor-default"
                     >
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-[#27272A] border border-[#3F3F46] flex items-center justify-center text-[#A1A1AA] text-xs font-bold shrink-0">
+                          <div className="w-8 h-8 rounded-full bg-[var(--s-border)] border border-[var(--s-border-2)] flex items-center justify-center text-[var(--s-fg-2)] text-xs font-bold shrink-0">
                             {row.avatar}
                           </div>
-                          <span className="text-[#FAFAFA] text-sm font-medium">
+                          <span className="text-[var(--s-fg)] text-sm font-medium">
                             {row.concorrente}
                           </span>
                         </div>
@@ -217,10 +219,10 @@ export default function DashboardPage() {
                         </span>
                       </td>
                       <td className="px-6 py-4 max-w-xs">
-                        <p className="text-[#A1A1AA] text-sm truncate">{row.conteudo}</p>
+                        <p className="text-[var(--s-fg-2)] text-sm truncate">{row.conteudo}</p>
                       </td>
                       <td className="px-6 py-4">
-                        <span className="text-[#52525B] text-sm whitespace-nowrap">
+                        <span className="text-[var(--s-fg-4)] text-sm whitespace-nowrap">
                           {row.detectado}
                         </span>
                       </td>

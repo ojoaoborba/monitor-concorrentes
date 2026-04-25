@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Bell, Tag, Package, TrendingUp, Handshake, Filter } from 'lucide-react'
 import Link from 'next/link'
+import { ThemeToggle } from '@/components/ThemeToggle'
 
 type Tipo = 'Promoção' | 'Novo Produto' | 'Engajamento Alto' | 'Parceria'
 type Filtro = 'Todos' | Tipo
@@ -133,21 +134,22 @@ export default function AlertasPage() {
 
   return (
     <>
-      <header className="sticky top-0 z-10 bg-[#09090B]/80 backdrop-blur-md border-b border-[#27272A] px-8 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-10 bg-[var(--s-bg)]/80 backdrop-blur-md border-b border-[var(--s-border)] px-8 py-4 flex items-center justify-between">
         <div>
-          <h1 className="text-[#FAFAFA] text-xl font-bold leading-tight">Central de Alertas</h1>
-          <p className="text-[#52525B] text-xs mt-0.5">
+          <h1 className="text-[var(--s-fg)] text-xl font-bold leading-tight">Central de Alertas</h1>
+          <p className="text-[var(--s-fg-4)] text-xs mt-0.5">
             {naoLidos > 0 ? `${naoLidos} alertas não lidos` : 'Todos os alertas lidos'}
           </p>
         </div>
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Link
             href="/dashboard/alertas"
-            className="relative p-2 rounded-xl bg-[#18181B] border border-[#27272A] text-[#1DB954] hover:border-[#3F3F46] transition-all"
+            className="relative p-2 rounded-xl bg-[var(--s-surface)] border border-[var(--s-border)] text-[#1DB954] hover:border-[var(--s-border-2)] transition-all"
           >
             <Bell className="w-4 h-4" />
             {naoLidos > 0 && (
-              <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-[#1DB954] rounded-full ring-2 ring-[#09090B]" />
+              <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-[#1DB954] rounded-full ring-2 ring-[var(--s-surface)]" />
             )}
           </Link>
         </div>
@@ -156,7 +158,7 @@ export default function AlertasPage() {
       <div className="p-8 space-y-6">
         {/* Filtros */}
         <div className="flex items-center gap-2">
-          <Filter className="w-4 h-4 text-[#52525B] shrink-0" />
+          <Filter className="w-4 h-4 text-[var(--s-fg-4)] shrink-0" />
           <div className="flex items-center gap-2 flex-wrap">
             {filtros.map((f) => {
               const ativo = filtroAtivo === f.value
@@ -170,8 +172,8 @@ export default function AlertasPage() {
                     ativo && cfg
                       ? { backgroundColor: cfg.bg, color: cfg.color, borderColor: `${cfg.color}30` }
                       : ativo
-                      ? { backgroundColor: 'rgba(250,250,250,0.08)', color: '#FAFAFA', borderColor: '#3F3F46' }
-                      : { backgroundColor: 'transparent', color: '#71717A', borderColor: '#27272A' }
+                      ? { backgroundColor: 'var(--s-active-bg)', color: 'var(--s-fg)', borderColor: 'var(--s-border-2)' }
+                      : { backgroundColor: 'transparent', color: 'var(--s-fg-3)', borderColor: 'var(--s-border)' }
                   }
                 >
                   {f.label}
@@ -184,9 +186,9 @@ export default function AlertasPage() {
         {/* Cards */}
         <div className="space-y-3">
           {visiveis.length === 0 && (
-            <div className="bg-[#18181B] border border-[#27272A] rounded-2xl p-12 flex flex-col items-center gap-3">
-              <Bell className="w-8 h-8 text-[#3F3F46]" />
-              <p className="text-[#52525B] text-sm">Nenhum alerta neste filtro.</p>
+            <div className="bg-[var(--s-surface)] border border-[var(--s-border)] rounded-2xl p-12 flex flex-col items-center gap-3">
+              <Bell className="w-8 h-8 text-[var(--s-fg-5)]" />
+              <p className="text-[var(--s-fg-4)] text-sm">Nenhum alerta neste filtro.</p>
             </div>
           )}
           {visiveis.map((alerta) => {
@@ -198,8 +200,8 @@ export default function AlertasPage() {
               <div
                 key={alerta.id}
                 onClick={() => marcarLido(alerta.id)}
-                className={`bg-[#18181B] border rounded-2xl p-5 flex gap-4 cursor-pointer transition-all hover:border-[#3F3F46] group ${
-                  naolido ? 'border-[#27272A]' : 'border-[#27272A]/50 opacity-70'
+                className={`bg-[var(--s-surface)] border rounded-2xl p-5 flex gap-4 cursor-pointer transition-all hover:border-[var(--s-border-2)] group ${
+                  naolido ? 'border-[var(--s-border)]' : 'border-[var(--s-border)]/50 opacity-70'
                 }`}
               >
                 {/* Ícone do tipo de alerta */}
@@ -219,7 +221,7 @@ export default function AlertasPage() {
                       >
                         {alerta.avatar}
                       </div>
-                      <span className="text-[#A1A1AA] text-xs font-medium">{alerta.concorrente}</span>
+                      <span className="text-[var(--s-fg-2)] text-xs font-medium">{alerta.concorrente}</span>
                       <span
                         className="inline-flex items-center text-[10px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap"
                         style={{ backgroundColor: cfg.bg, color: cfg.color }}
@@ -230,11 +232,11 @@ export default function AlertasPage() {
                         <span className="w-1.5 h-1.5 rounded-full bg-[#1DB954] shrink-0" />
                       )}
                     </div>
-                    <span className="text-[#3F3F46] text-xs whitespace-nowrap shrink-0">
+                    <span className="text-[var(--s-fg-5)] text-xs whitespace-nowrap shrink-0">
                       {alerta.horario}
                     </span>
                   </div>
-                  <p className="text-[#FAFAFA] text-sm mt-2 leading-relaxed group-hover:text-white transition-colors">
+                  <p className="text-[var(--s-fg)] text-sm mt-2 leading-relaxed group-hover:text-[var(--s-fg)] transition-colors">
                     {alerta.descricao}
                   </p>
                 </div>

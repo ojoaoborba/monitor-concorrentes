@@ -17,6 +17,7 @@ import {
   Edit3,
 } from 'lucide-react'
 import Link from 'next/link'
+import { ThemeToggle } from '@/components/ThemeToggle'
 
 interface Toggle {
   id: string
@@ -30,9 +31,9 @@ function ToggleSwitch({ on, onChange }: { on: boolean; onChange: () => void }) {
   return (
     <button
       onClick={onChange}
-      className="relative w-10 h-5.5 rounded-full transition-all shrink-0"
+      className="relative rounded-full transition-all shrink-0"
       style={{
-        backgroundColor: on ? '#1DB954' : '#3F3F46',
+        backgroundColor: on ? '#1DB954' : 'var(--s-border-2)',
         width: '40px',
         height: '22px',
       }}
@@ -93,28 +94,29 @@ export default function ConfiguracoesPage() {
 
   return (
     <>
-      <header className="sticky top-0 z-10 bg-[#09090B]/80 backdrop-blur-md border-b border-[#27272A] px-8 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-10 bg-[var(--s-bg)]/80 backdrop-blur-md border-b border-[var(--s-border)] px-8 py-4 flex items-center justify-between">
         <div>
-          <h1 className="text-[#FAFAFA] text-xl font-bold leading-tight">Configurações</h1>
-          <p className="text-[#52525B] text-xs mt-0.5">Gerencie sua conta e preferências</p>
+          <h1 className="text-[var(--s-fg)] text-xl font-bold leading-tight">Configurações</h1>
+          <p className="text-[var(--s-fg-4)] text-xs mt-0.5">Gerencie sua conta e preferências</p>
         </div>
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Link
             href="/dashboard/alertas"
-            className="relative p-2 rounded-xl bg-[#18181B] border border-[#27272A] text-[#71717A] hover:text-[#FAFAFA] hover:border-[#3F3F46] transition-all"
+            className="relative p-2 rounded-xl bg-[var(--s-surface)] border border-[var(--s-border)] text-[var(--s-fg-3)] hover:text-[var(--s-fg)] hover:border-[var(--s-border-2)] transition-all"
           >
             <Bell className="w-4 h-4" />
-            <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-[#1DB954] rounded-full ring-2 ring-[#09090B]" />
+            <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-[#1DB954] rounded-full ring-2 ring-[var(--s-surface)]" />
           </Link>
         </div>
       </header>
 
       <div className="p-8 space-y-6 max-w-2xl">
         {/* ── Minha Conta ── */}
-        <section className="bg-[#18181B] border border-[#27272A] rounded-2xl overflow-hidden">
-          <div className="px-6 py-4 border-b border-[#27272A] flex items-center gap-2">
+        <section className="bg-[var(--s-surface)] border border-[var(--s-border)] rounded-2xl overflow-hidden">
+          <div className="px-6 py-4 border-b border-[var(--s-border)] flex items-center gap-2">
             <User className="w-4 h-4 text-[#1DB954]" />
-            <h2 className="text-[#FAFAFA] font-semibold text-sm">Minha Conta</h2>
+            <h2 className="text-[var(--s-fg)] font-semibold text-sm">Minha Conta</h2>
           </div>
           <div className="px-6 py-5 space-y-5">
             {/* Avatar + nome */}
@@ -123,8 +125,8 @@ export default function ConfiguracoesPage() {
                 JL
               </div>
               <div>
-                <p className="text-[#FAFAFA] font-semibold">João Luiz</p>
-                <p className="text-[#52525B] text-xs mt-0.5">joao@exemplo.com</p>
+                <p className="text-[var(--s-fg)] font-semibold">João Luiz</p>
+                <p className="text-[var(--s-fg-4)] text-xs mt-0.5">joao@exemplo.com</p>
               </div>
               <span className="ml-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1DB954]/12 text-[#1DB954] text-xs font-semibold border border-[#1DB954]/20">
                 <BadgeCheck className="w-3.5 h-3.5" />
@@ -135,16 +137,16 @@ export default function ConfiguracoesPage() {
             {/* Campos */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="text-[#71717A] text-xs font-medium block mb-1.5">Nome</label>
-                <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-[#09090B] border border-[#27272A] text-[#FAFAFA] text-sm">
-                  <User className="w-3.5 h-3.5 text-[#52525B] shrink-0" />
+                <label className="text-[var(--s-fg-3)] text-xs font-medium block mb-1.5">Nome</label>
+                <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-[var(--s-bg)] border border-[var(--s-border)] text-[var(--s-fg)] text-sm">
+                  <User className="w-3.5 h-3.5 text-[var(--s-fg-4)] shrink-0" />
                   <span>João Luiz</span>
                 </div>
               </div>
               <div>
-                <label className="text-[#71717A] text-xs font-medium block mb-1.5">E-mail</label>
-                <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-[#09090B] border border-[#27272A] text-[#FAFAFA] text-sm">
-                  <Mail className="w-3.5 h-3.5 text-[#52525B] shrink-0" />
+                <label className="text-[var(--s-fg-3)] text-xs font-medium block mb-1.5">E-mail</label>
+                <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-[var(--s-bg)] border border-[var(--s-border)] text-[var(--s-fg)] text-sm">
+                  <Mail className="w-3.5 h-3.5 text-[var(--s-fg-4)] shrink-0" />
                   <span>joao@exemplo.com</span>
                 </div>
               </div>
@@ -152,11 +154,11 @@ export default function ConfiguracoesPage() {
 
             {/* Ações */}
             <div className="flex items-center gap-3 pt-1">
-              <button className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#27272A] hover:bg-[#3F3F46] text-[#FAFAFA] text-sm font-medium transition-all border border-[#3F3F46]">
+              <button className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--s-border)] hover:bg-[var(--s-border-2)] text-[var(--s-fg)] text-sm font-medium transition-all border border-[var(--s-border-2)]">
                 <Edit3 className="w-3.5 h-3.5" />
                 Editar Perfil
               </button>
-              <button className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#27272A] hover:bg-[#3F3F46] text-[#FAFAFA] text-sm font-medium transition-all border border-[#3F3F46]">
+              <button className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--s-border)] hover:bg-[var(--s-border-2)] text-[var(--s-fg)] text-sm font-medium transition-all border border-[var(--s-border-2)]">
                 <Lock className="w-3.5 h-3.5" />
                 Alterar Senha
               </button>
@@ -165,15 +167,15 @@ export default function ConfiguracoesPage() {
         </section>
 
         {/* ── Notificações ── */}
-        <section className="bg-[#18181B] border border-[#27272A] rounded-2xl overflow-hidden">
-          <div className="px-6 py-4 border-b border-[#27272A] flex items-center gap-2">
+        <section className="bg-[var(--s-surface)] border border-[var(--s-border)] rounded-2xl overflow-hidden">
+          <div className="px-6 py-4 border-b border-[var(--s-border)] flex items-center gap-2">
             <Bell className="w-4 h-4 text-[#1DB954]" />
-            <h2 className="text-[#FAFAFA] font-semibold text-sm">Notificações</h2>
+            <h2 className="text-[var(--s-fg)] font-semibold text-sm">Notificações</h2>
           </div>
           <div className="px-6 py-5 space-y-5">
             {/* Canais */}
             <div>
-              <p className="text-[#71717A] text-xs font-semibold uppercase tracking-widest mb-3">
+              <p className="text-[var(--s-fg-3)] text-xs font-semibold uppercase tracking-widest mb-3">
                 Canais de envio
               </p>
               <div className="space-y-3">
@@ -183,8 +185,8 @@ export default function ConfiguracoesPage() {
                       <MessageCircle className="w-4 h-4 text-[#1DB954]" />
                     </div>
                     <div>
-                      <p className="text-[#FAFAFA] text-sm font-medium">WhatsApp</p>
-                      <p className="text-[#52525B] text-xs">+55 (11) 99999-0001</p>
+                      <p className="text-[var(--s-fg)] text-sm font-medium">WhatsApp</p>
+                      <p className="text-[var(--s-fg-4)] text-xs">+55 (11) 99999-0001</p>
                     </div>
                   </div>
                   <ToggleSwitch on={notifWhatsapp} onChange={() => setNotifWhatsapp((v) => !v)} />
@@ -195,8 +197,8 @@ export default function ConfiguracoesPage() {
                       <Mail className="w-4 h-4 text-[#3B82F6]" />
                     </div>
                     <div>
-                      <p className="text-[#FAFAFA] text-sm font-medium">E-mail</p>
-                      <p className="text-[#52525B] text-xs">joao@exemplo.com</p>
+                      <p className="text-[var(--s-fg)] text-sm font-medium">E-mail</p>
+                      <p className="text-[var(--s-fg-4)] text-xs">joao@exemplo.com</p>
                     </div>
                   </div>
                   <ToggleSwitch on={notifEmail} onChange={() => setNotifEmail((v) => !v)} />
@@ -206,7 +208,7 @@ export default function ConfiguracoesPage() {
 
             {/* Tipos de alerta */}
             <div>
-              <p className="text-[#71717A] text-xs font-semibold uppercase tracking-widest mb-3">
+              <p className="text-[var(--s-fg-3)] text-xs font-semibold uppercase tracking-widest mb-3">
                 Tipos de alerta
               </p>
               <div className="space-y-3">
@@ -215,10 +217,10 @@ export default function ConfiguracoesPage() {
                   return (
                     <div key={t.id} className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <Icon className="w-4 h-4 text-[#52525B]" />
+                        <Icon className="w-4 h-4 text-[var(--s-fg-4)]" />
                         <div>
-                          <p className="text-[#FAFAFA] text-sm font-medium">{t.label}</p>
-                          <p className="text-[#52525B] text-xs">{t.descricao}</p>
+                          <p className="text-[var(--s-fg)] text-sm font-medium">{t.label}</p>
+                          <p className="text-[var(--s-fg-4)] text-xs">{t.descricao}</p>
                         </div>
                       </div>
                       <ToggleSwitch on={t.value} onChange={() => toggleTipo(t.id)} />
@@ -231,21 +233,21 @@ export default function ConfiguracoesPage() {
         </section>
 
         {/* ── Integrações ── */}
-        <section className="bg-[#18181B] border border-[#27272A] rounded-2xl overflow-hidden">
-          <div className="px-6 py-4 border-b border-[#27272A] flex items-center gap-2">
+        <section className="bg-[var(--s-surface)] border border-[var(--s-border)] rounded-2xl overflow-hidden">
+          <div className="px-6 py-4 border-b border-[var(--s-border)] flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-[#1DB954]" />
-            <h2 className="text-[#FAFAFA] font-semibold text-sm">Integrações</h2>
+            <h2 className="text-[var(--s-fg)] font-semibold text-sm">Integrações</h2>
           </div>
           <div className="px-6 py-5 space-y-4">
             {/* WhatsApp */}
-            <div className="flex items-center justify-between p-4 rounded-xl bg-[#09090B] border border-[#27272A]">
+            <div className="flex items-center justify-between p-4 rounded-xl bg-[var(--s-bg)] border border-[var(--s-border)]">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#1DB954]/12 border border-[#1DB954]/20 flex items-center justify-center">
                   <MessageCircle className="w-5 h-5 text-[#1DB954]" />
                 </div>
                 <div>
-                  <p className="text-[#FAFAFA] text-sm font-semibold">WhatsApp</p>
-                  <p className="text-[#52525B] text-xs">+55 (11) 99999-0001</p>
+                  <p className="text-[var(--s-fg)] text-sm font-semibold">WhatsApp</p>
+                  <p className="text-[var(--s-fg-4)] text-xs">+55 (11) 99999-0001</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
@@ -255,7 +257,7 @@ export default function ConfiguracoesPage() {
             </div>
 
             {/* Instagram API */}
-            <div className="flex items-center justify-between p-4 rounded-xl bg-[#09090B] border border-[#27272A]">
+            <div className="flex items-center justify-between p-4 rounded-xl bg-[var(--s-bg)] border border-[var(--s-border)]">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#EC4899]/12 border border-[#EC4899]/20 flex items-center justify-center">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#EC4899" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -265,8 +267,8 @@ export default function ConfiguracoesPage() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-[#FAFAFA] text-sm font-semibold">Instagram API</p>
-                  <p className="text-[#52525B] text-xs">@minha_conta_oficial</p>
+                  <p className="text-[var(--s-fg)] text-sm font-semibold">Instagram API</p>
+                  <p className="text-[var(--s-fg-4)] text-xs">@minha_conta_oficial</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
@@ -276,7 +278,7 @@ export default function ConfiguracoesPage() {
             </div>
 
             {/* Adicionar integração */}
-            <button className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border border-dashed border-[#3F3F46] text-[#52525B] hover:text-[#71717A] hover:border-[#52525B] text-sm font-medium transition-all">
+            <button className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border border-dashed border-[var(--s-border-2)] text-[var(--s-fg-4)] hover:text-[var(--s-fg-3)] hover:border-[var(--s-fg-4)] text-sm font-medium transition-all">
               <AlertCircle className="w-4 h-4" />
               Adicionar integração
             </button>
