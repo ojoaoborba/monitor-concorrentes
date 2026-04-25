@@ -20,62 +20,62 @@ interface Concorrente {
 const inicial: Concorrente[] = [
   {
     id: 1,
-    avatar: 'CP',
-    nome: 'Concessionária Premium',
-    handle: '@concessionaria_premium',
-    seguidores: '89,3K',
-    posts: 178,
+    avatar: 'GO',
+    nome: 'Growth Suplementos',
+    handle: '@growth_oficial',
+    seguidores: '312,5K',
+    posts: 289,
     ultimoAlerta: 'há 9 min',
     status: 'Ativo',
   },
   {
     id: 2,
-    avatar: 'AH',
-    nome: 'AutoHaus SP',
-    handle: '@autohaus_sp',
-    seguidores: '67,5K',
-    posts: 143,
+    avatar: 'IM',
+    nome: 'Integral Médica',
+    handle: '@integralmedica',
+    seguidores: '891,2K',
+    posts: 412,
     ultimoAlerta: 'há 27 min',
     status: 'Ativo',
   },
   {
     id: 3,
-    avatar: 'MB',
-    nome: 'Motors Brasil',
-    handle: '@motors_brasil',
-    seguidores: '54,2K',
-    posts: 121,
+    avatar: 'PB',
+    nome: 'Probiótica',
+    handle: '@probiotica_br',
+    seguidores: '445,7K',
+    posts: 356,
     ultimoAlerta: 'há 1h',
     status: 'Ativo',
   },
   {
     id: 4,
-    avatar: 'VC',
-    nome: 'VeloCar Oficial',
-    handle: '@velocar_oficial',
-    seguidores: '38,7K',
-    posts: 89,
+    avatar: 'DS',
+    nome: 'Darkness Suplementos',
+    handle: '@darkness_suplementos',
+    seguidores: '178,3K',
+    posts: 204,
     ultimoAlerta: 'há 4h',
     status: 'Pausado',
   },
   {
     id: 5,
-    avatar: 'TC',
-    nome: 'TopCar Dealer',
-    handle: '@topcar_dealer',
-    seguidores: '102,1K',
-    posts: 196,
+    avatar: 'MT',
+    nome: 'Max Titanium',
+    handle: '@max_titanium',
+    seguidores: '534,9K',
+    posts: 321,
     ultimoAlerta: 'há 2h',
     status: 'Ativo',
   },
 ]
 
 const avatarColors: Record<string, string> = {
-  CP: '#1DB954',
-  AH: '#3B82F6',
-  MB: '#F59E0B',
-  VC: '#A855F7',
-  TC: '#EC4899',
+  GO: '#1DB954',
+  IM: '#3B82F6',
+  PB: '#F59E0B',
+  DS: '#A855F7',
+  MT: '#EC4899',
 }
 
 export default function ConcorrentesPage() {
@@ -122,7 +122,7 @@ export default function ConcorrentesPage() {
           <div className="px-6 py-4 border-b border-[#27272A]">
             <h3 className="text-[#FAFAFA] font-semibold text-sm">Perfis Monitorados</h3>
             <p className="text-[#52525B] text-xs mt-0.5">
-              Gerencie suas concessionárias concorrentes e veja o status de cada monitoramento
+              Gerencie suas lojas de suplementos concorrentes e veja o status de cada monitoramento
             </p>
           </div>
 
@@ -131,7 +131,7 @@ export default function ConcorrentesPage() {
               <div className="w-14 h-14 rounded-2xl bg-[#27272A] flex items-center justify-center">
                 <Users className="w-7 h-7 text-[#3F3F46]" />
               </div>
-              <p className="text-[#52525B] text-sm">Nenhuma concessionária cadastrada.</p>
+              <p className="text-[#52525B] text-sm">Nenhuma loja de suplementos cadastrada.</p>
               <button className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1DB954] hover:bg-[#1DB954]/90 text-[#09090B] text-sm font-semibold transition-all">
                 <Plus className="w-4 h-4" />
                 Adicionar Concorrente

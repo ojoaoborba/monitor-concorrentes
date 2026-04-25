@@ -12,29 +12,29 @@ import Link from "next/link"
 
 const metrics = [
   {
-    label: "Concessionárias Monitoradas",
-    value: "8",
+    label: "Lojas Monitoradas",
+    value: "5",
     change: "+1 este mês",
     icon: Users,
     color: "#1DB954",
   },
   {
-    label: "Anúncios Analisados Hoje",
-    value: "214",
-    change: "+31 nas últimas 2h",
+    label: "Posts Analisados Hoje",
+    value: "314",
+    change: "+47 nas últimas 2h",
     icon: FileText,
     color: "#3B82F6",
   },
   {
     label: "Alertas Detectados",
-    value: "6",
-    change: "2 não lidos",
+    value: "8",
+    change: "3 não lidos",
     icon: AlertTriangle,
     color: "#F59E0B",
   },
   {
     label: "Promoções Identificadas",
-    value: "3",
+    value: "4",
     change: "Hoje",
     icon: Tag,
     color: "#EC4899",
@@ -43,42 +43,42 @@ const metrics = [
 
 const alerts = [
   {
-    concorrente: "@autohaus_sp",
-    avatar: "AH",
+    concorrente: "@growth_oficial",
+    avatar: "GO",
     tipo: "Promoção",
-    conteudo: "IPVA grátis + entrada facilitada no Corolla XEi 2025 — só este fim de semana!",
+    conteudo: "Whey Protein com 40% OFF — promoção relâmpago só hoje! Mais de 15 sabores disponíveis.",
     detectado: "há 9 min",
     status: "Novo",
   },
   {
-    concorrente: "@motors_brasil",
-    avatar: "MB",
+    concorrente: "@integralmedica",
+    avatar: "IM",
     tipo: "Novo Produto",
-    conteudo: "Chegou o novo Tracker Premier 2026 — agende seu test drive agora",
+    conteudo: "Lançamento do novo pré-treino sabor tropical com blend exclusivo de cafeína e citrulina.",
     detectado: "há 27 min",
     status: "Novo",
   },
   {
-    concorrente: "@velocar_oficial",
-    avatar: "VC",
-    tipo: "Engajamento Alto",
-    conteudo: "Vídeo de test drive com influencer local: +9k curtidas em menos de 1h",
+    concorrente: "@probiotica_br",
+    avatar: "PB",
+    tipo: "Promoção",
+    conteudo: "Feirão de creatina: 300g por R$ 59,90 com frete grátis para todo o Brasil.",
     detectado: "há 1h",
     status: "Visto",
   },
   {
-    concorrente: "@concessionaria_premium",
-    avatar: "CP",
-    tipo: "Promoção",
-    conteudo: "Feirão de Seminovos: 180 veículos revisados, parcela a partir de R$ 799/mês",
+    concorrente: "@darkness_suplementos",
+    avatar: "DS",
+    tipo: "Parceria",
+    conteudo: "Parceria com atleta profissional de fisiculturismo para embaixador da nova linha hardcore.",
     detectado: "há 2h",
     status: "Visto",
   },
   {
-    concorrente: "@topcar_dealer",
-    avatar: "TC",
-    tipo: "Parceria",
-    conteudo: "Parceria com Banco Itaú: financiamento 0% de entrada até dezembro/2025",
+    concorrente: "@max_titanium",
+    avatar: "MT",
+    tipo: "Engajamento Alto",
+    conteudo: "Post viral de antes e depois com produto da marca: +28K curtidas em menos de 3h.",
     detectado: "há 3h",
     status: "Arquivado",
   },
@@ -163,7 +163,7 @@ export default function DashboardPage() {
             <div>
               <h3 className="text-[#FAFAFA] font-semibold text-sm">Últimos Alertas</h3>
               <p className="text-[#52525B] text-xs mt-0.5">
-                Atividade recente das concessionárias monitoradas
+                Atividade recente das lojas de suplementos monitoradas
               </p>
             </div>
             <Link
